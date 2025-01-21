@@ -1,4 +1,154 @@
-.hero p{
-    color: green;
-    font-size: medium;
+/* Fondo del body con un gradiente suave de azul claro a un tono más fuerte */
+body {
+    background: linear-gradient(135deg, #e0f7fa, #80deea); /* Gradiente en el fondo */
+    font-family: Arial, sans-serif; /* Fuente del texto */
+    color: #333; /* Color del texto */
+    transition: background 0.5s ease-in-out; /* Transición suave en el fondo */
+}
+
+/* Estilos generales para el formulario */
+form {
+    padding: 20px; /* Espaciado interno */
+    border-radius: 8px; /* Bordes redondeados */
+    background: rgba(255, 255, 255, 0.8); /* Fondo semitransparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: transform 0.3s ease; /* Transición para el efecto de escala */
+}
+
+/* Efecto de transformación al pasar el mouse sobre el formulario */
+form:hover {
+    transform: scale(1.02); /* Aumento de tamaño al pasar el ratón */
+}
+
+/* Estilos para inputs, selects y botones */
+input, select, button {
+    border-radius: 4px; /* Bordes redondeados */
+    border: none; /* Sin bordes visibles */
+}
+
+/* Efecto de transición para los campos de entrada tipo number y select */
+input[type="number"], select {
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para el fondo y sombra */
+}
+
+/* Efecto de enfoque para los campos de entrada */
+input[type="number"]:focus, select:focus {
+    background-color: #e3f2fd; /* Cambio de fondo a azul claro */
+    box-shadow: 0 0 8px rgba(33, 150, 243, 0.5); /* Sombra azul al enfocar */
+}
+
+/* Estilos para el botón */
+button {
+    background: #0288d1; /* Fondo azul */
+    color: white; /* Texto blanco */
+    padding: 10px 20px; /* Espaciado interno */
+    cursor: pointer; /* Aparece el cursor de mano */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Transición para el fondo y sombra */
+}
+
+/* Efecto al pasar el mouse sobre el botón */
+button:hover {
+    background: #0277bd; /* Fondo más oscuro */
+    box-shadow: 0 4px 12px rgba(2, 136, 209, 0.3); /* Sombra más prominente */
+}
+
+/* Estilos para el contenedor de resultados */
+#resultado {
+    padding: 15px; /* Espaciado interno */
+    background: rgba(255, 255, 255, 0.7); /* Fondo semitransparente */
+    border-radius: 8px; /* Bordes redondeados */
+    opacity: 0; /* Inicialmente invisible */
+    transform: translateX(-100%); /* Comienza desplazado hacia la izquierda */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Transición suave */
+    display: none; /* No visible inicialmente */
+    max-width: 50%; /* Máxima anchura del contenedor */
+    margin: 0 auto; /* Centrado */
+}
+
+/* Mostrar el contenedor de resultados con animación */
+#resultado.mostrar {
+    display: block; /* Hacerlo visible */
+    opacity: 1; /* Totalmente opaco */
+    transform: translateX(0); /* Desplazar a la posición original */
+}
+
+/* Estilos para la lista de resultados */
+#resultado ul {
+    list-style-type: none; /* Eliminar los puntos de la lista */
+    padding: 0; /* Eliminar el padding */
+    display: flex; /* Disposición en fila */
+    flex-direction: column; /* Columna de elementos */
+}
+
+/* Estilos para cada elemento de la lista */
+#resultado ul li {
+    display: flex; /* Disposición en línea de los elementos */
+    justify-content: space-between; /* Espaciado entre etiquetas y valores */
+    margin: 5px 0; /* Espaciado entre elementos */
+}
+
+/* Estilos para el título de los resultados */
+#resultado .titulo {
+    font-size: 1.5rem; /* Tamaño de fuente grande */
+    font-weight: bold; /* Negrita */
+    text-align: center; /* Alinear al centro */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Estilos para el área del costo total */
+.costo-total {
+    margin-top: 10px; /* Espaciado superior */
+    padding: 10px; /* Espaciado interno */
+    background: linear-gradient(135deg, #ffeb3b, #ffc107); /* Gradiente amarillo */
+    border-radius: 6px; /* Bordes redondeados */
+    font-size: 1.2rem; /* Tamaño de fuente mayor */
+    font-weight: bold; /* Negrita */
+    text-align: right; /* Alinear a la derecha */
+    display: flex; /* Disposición en fila */
+    justify-content: space-between; /* Espaciado entre elementos */
+    align-items: center; /* Alinear verticalmente */
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15); /* Sombra suave */
+    transition: transform 0.4s ease-in-out, background-color 0.4s; /* Transición para escalado y fondo */
+}
+
+/* Efecto al pasar el mouse sobre el área de costo total */
+.costo-total:hover {
+    transform: scale(1.05); /* Escalado */
+    background-color: #ffca28; /* Fondo más oscuro */
+}
+
+/* Estilos para el número del costo total con animación de parpadeo */
+.costo-total-numero {
+    font-family: 'Courier New', Courier, monospace; /* Fuente monoespaciada */
+    color: #d32f2f; /* Color rojo */
+    animation: parpadeo 1.2s infinite alternate; /* Animación de parpadeo */
+}
+
+/* Animación de parpadeo para el costo total */
+@keyframes parpadeo {
+    from {
+        opacity: 1; /* Totalmente visible */
+    }
+    to {
+        opacity: 0.7; /* Ligeramente más opaco */
+    }
+}
+
+/* Línea divisoria después del "Peso del producto" */
+#resultado ul li:nth-child(4) {
+    border-bottom: 1px solid #ddd; /* Línea divisoria */
+    padding-bottom: 10px; /* Espaciado inferior */
+    margin-bottom: 10px; /* Espaciado inferior */
+}
+
+/* Espaciado superior para el siguiente ítem */
+#resultado ul li:nth-child(5) {
+    padding-top: 10px; /* Espaciado superior */
+}
+
+/* Estilos para los honorarios */
+.honorarios {
+    background-color: transparent; /* Sin fondo */
+    font-weight: normal; /* Peso normal para el texto */
+    padding: 5px 0; /* Espaciado vertical */
 }
